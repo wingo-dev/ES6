@@ -2,16 +2,18 @@ import React from "react";
 import Note from "./Note";
 import notes from "../notes";
 
-console.log(notes);
+function createNote(noteItem) {
+    return <Note
+        key={noteItem.key}
+        title={noteItem.title}
+        content={noteItem.content}
+    />
+}
 
 function App() {
     return (
-        <div>
-
-            <Note
-                title="This is the note title"
-                content="This is the note content"
-            />
+        <div className="keeper-body">
+            {notes.map(createNote)}
         </div>
     )
 }
